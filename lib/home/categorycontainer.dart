@@ -1,20 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:emplayer/Models/category.dart';
 
-import '../library_page/songs.dart';
+import '../library/songs.dart';
 
-class CreateCategoryContainer extends StatelessWidget {
+int index = 0;
+
+class CreateCategoryContainer extends StatefulWidget {
   final Category category;
   const CreateCategoryContainer(this.category, {super.key});
 
   @override
+  State<CreateCategoryContainer> createState() =>
+      _CreateCategoryContainerState();
+}
+
+class _CreateCategoryContainerState extends State<CreateCategoryContainer> {
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        // setState(() {
+        //   index = 3;
+        // });
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => Songs(category.title),
+            builder: (context) => Songs(widget.category.title),
           ),
         );
       },
@@ -28,13 +39,14 @@ class CreateCategoryContainer extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 image: DecorationImage(
-                    image: NetworkImage(category.imgUrl), fit: BoxFit.cover),
+                    image: NetworkImage(widget.category.imgUrl),
+                    fit: BoxFit.cover),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8),
               child: Text(
-                category.title,
+                widget.category.title,
                 style:
                     const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
@@ -43,5 +55,11 @@ class CreateCategoryContainer extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class ReturnNum {
+  int getNum() {
+    return index;
   }
 }

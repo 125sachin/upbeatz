@@ -1,4 +1,4 @@
-import 'package:emplayer/account_page/profile/edit_age.dart';
+import 'package:emplayer/account/profile/edit_age.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';

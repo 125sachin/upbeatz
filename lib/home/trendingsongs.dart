@@ -1,5 +1,5 @@
-import 'package:emplayer/home_page/homititle.dart';
-import 'package:emplayer/home_page/vertSongs.dart';
+import 'package:emplayer/home/homititle.dart';
+import 'package:emplayer/home/vertSongs.dart';
 import 'package:flutter/material.dart';
 
 class TrendingSongs extends StatelessWidget {

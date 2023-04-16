@@ -1,4 +1,4 @@
-import 'package:emplayer/library_page/rectangle.dart';
+import 'package:emplayer/library/rectangle.dart';
 import 'package:flutter/material.dart';
 
 class Library extends StatelessWidget {

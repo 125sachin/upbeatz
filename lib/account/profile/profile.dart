@@ -2,7 +2,7 @@
 
 import 'dart:io';
 
-import 'package:emplayer/account_page/profile/edit_name.dart';
+import 'package:emplayer/account/profile/edit_name.dart';
 import 'package:flutter/material.dart';
 import '../account_page.dart';
 import 'edit_age.dart';

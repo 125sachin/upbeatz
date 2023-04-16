@@ -1,10 +1,10 @@
 import 'package:emplayer/Models/category.dart';
-import 'package:emplayer/home_page/homititle.dart';
+import 'package:emplayer/home/homititle.dart';
 import 'package:flutter/material.dart';
-import 'package:emplayer/home_page/categorycontainer.dart';
+import 'package:emplayer/home/categorycontainer.dart';
 
-class RemixDeck extends StatelessWidget {
-  const RemixDeck({super.key});
+class Playlists extends StatelessWidget {
+  const Playlists({super.key});
 
   List<Widget> createListOfCategories() {
     List<Category> categoryList = Category.getCategories();
@@ -38,7 +38,7 @@ class RemixDeck extends StatelessWidget {
         ),
         child: Column(
           children: [
-            title('Remix Deck'),
+            title('Your Playlists'),
             Expanded(
               child: ListView(
                 padding: const EdgeInsets.fromLTRB(12, 0, 12, 0),

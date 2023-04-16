@@ -1,5 +1,5 @@
 import 'package:emplayer/Models/music.dart';
-import 'package:emplayer/library_page/play.dart';
+import 'package:emplayer/library/miniplayer.dart';
 import 'package:flutter/material.dart';
 
 class SongContainer extends StatefulWidget {
@@ -22,14 +22,7 @@ class _SongContainerState extends State<SongContainer> {
     return Padding(
       padding: const EdgeInsets.only(top: 2, bottom: 2, left: 20, right: 20),
       child: GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => NowPlaying(music),
-            ),
-          );
-        },
+        onTap: () {},
         child: Row(
           children: [
             Padding(
@@ -58,7 +51,7 @@ class _SongContainerState extends State<SongContainer> {
                         songName,
                         style: const TextStyle(
                           fontSize: 18,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
@@ -66,9 +59,9 @@ class _SongContainerState extends State<SongContainer> {
                       alignment: Alignment.bottomLeft,
                       child: Text(
                         artist,
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
+                        style: const TextStyle(
+                          fontSize: 15,
+                          // fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),

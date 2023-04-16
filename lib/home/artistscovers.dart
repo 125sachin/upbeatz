@@ -1,4 +1,4 @@
-import 'package:emplayer/home_page/artists.dart';
+import 'package:emplayer/home/artists.dart';
 import 'package:flutter/material.dart';
 
 class ArtistsCovers extends StatelessWidget {

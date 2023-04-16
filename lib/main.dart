@@ -1,7 +1,10 @@
-import 'package:emplayer/library_page/library.dart';
-import 'package:emplayer/search_page/searchPage.dart';
+import 'package:emplayer/home/categorycontainer.dart';
+import 'package:emplayer/library/library.dart';
+import 'package:emplayer/library/miniplayer.dart';
+import 'package:emplayer/library/songs.dart';
+import 'package:emplayer/search/searchPage.dart';
 import 'package:flutter/material.dart';
-import 'package:emplayer/home_page/homepage.dart';
+import 'package:emplayer/home/homepage.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,8 +18,10 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final Screens = [HomePage(), SearchTab(), Library()];
+  final screens = [HomePage(), SearchTab(), Library(), Songs("title")];
   int currentScreenIndex = 0;
+
+  // int currentScreenIndex = ReturnNum().getNum();
 
   @override
   Widget build(BuildContext context) {
@@ -30,45 +35,53 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         extendBody: true,
         body: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Colors.deepPurpleAccent.shade400,
-                  Colors.black,
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                stops: const [0.01, 0.4],
-              ),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.deepPurpleAccent.shade400,
+                Colors.black,
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              stops: const [0.01, 0.4],
             ),
-            child: Screens[currentScreenIndex]),
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: currentScreenIndex,
-          backgroundColor: Colors.black,
-          selectedItemColor: Colors.green[800],
-          iconSize: 30,
-          unselectedItemColor: Colors.white,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          onTap: (value) => {
-            currentScreenIndex = value,
-            setState(() {}),
-          },
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_rounded),
-              label: "Home",
+          ),
+          child: screens[currentScreenIndex],
+        ),
+        bottomNavigationBar: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            MiniPlayer(),
+            BottomNavigationBar(
+              currentIndex: currentScreenIndex,
               backgroundColor: Colors.black,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.search_rounded),
-              label: "Search",
-              backgroundColor: Colors.black,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.library_music_rounded),
-              label: "Library",
-              backgroundColor: Colors.black,
+              selectedItemColor: Colors.green[800],
+              iconSize: 30,
+              unselectedItemColor: Colors.white,
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
+              onTap: (value) => {
+                currentScreenIndex = value,
+                setState(() {}),
+                // index = returnNum.getNum(),
+              },
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home_rounded),
+                  label: "Home",
+                  backgroundColor: Colors.black,
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.search_rounded),
+                  label: "Search",
+                  backgroundColor: Colors.black,
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.library_music_rounded),
+                  label: "Library",
+                  backgroundColor: Colors.black,
+                ),
+              ],
             ),
           ],
         ),

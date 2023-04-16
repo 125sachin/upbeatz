@@ -1,4 +1,4 @@
-import 'package:emplayer/library_page/songs.dart';
+import 'package:emplayer/library/songs.dart';
 import 'package:flutter/material.dart';
 
 class Rectangle extends StatefulWidget {

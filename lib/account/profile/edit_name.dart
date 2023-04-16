@@ -1,5 +1,5 @@
-import 'package:emplayer/account_page/account_page.dart';
-import 'package:emplayer/account_page/profile/profile.dart';
+import 'package:emplayer/account/account_page.dart';
+import 'package:emplayer/account/profile/profile.dart';
 import 'package:flutter/material.dart';
 import '../account_page.dart';
 
