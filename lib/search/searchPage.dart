@@ -50,14 +50,16 @@ class SearchTab extends StatelessWidget {
       Color(0xFF103783),
     ], begin: Alignment.topLeft, end: Alignment.bottomRight),
   ];
+
   int i = 0;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
-            SliverAppBar(
+            const SliverAppBar(
               automaticallyImplyLeading: false,
               expandedHeight: 100.0,
               floating: false,
@@ -74,140 +76,135 @@ class SearchTab extends StatelessWidget {
             ),
           ];
         },
-        body: Container(
-          // color: Colors.grey[800],
-          child: Padding(
-            padding: const EdgeInsets.only(top: 16.0),
-            child: Column(
-              children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: MyCustomForm()),
-                    ),
-                  ],
-                ),
-                Expanded(
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(left: 0),
-                          child: Text(
-                            'Your top genres',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16),
-                          ),
+        body: Padding(
+          padding: const EdgeInsets.only(top: 16.0),
+          child: Column(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: MyCustomForm()),
+                  ),
+                ],
+              ),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      const Padding(
+                        padding: EdgeInsets.only(left: 0),
+                        child: Text(
+                          'Your top genres',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16),
                         ),
-                        GridView.count(
-                          shrinkWrap: true,
-                          physics: BouncingScrollPhysics(),
-                          crossAxisCount: 2,
-                          children: List.generate(
-                            4,
-                            (index) {
-                              return Padding(
-                                padding: const EdgeInsets.all(18.0),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    // log(index.toString());
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => Songs(
-                                          topGenres[index],
-                                        ),
+                      ),
+                      GridView.count(
+                        shrinkWrap: true,
+                        physics: const BouncingScrollPhysics(),
+                        crossAxisCount: 2,
+                        children: List.generate(
+                          4,
+                          (index) {
+                            return Padding(
+                              padding: const EdgeInsets.all(18.0),
+                              child: GestureDetector(
+                                onTap: () {
+                                  // log(index.toString());
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Songs(
+                                        topGenres[index],
                                       ),
-                                    );
-                                  },
-                                  child: Container(
-                                    alignment: Alignment.center,
-                                    width:
-                                        MediaQuery.of(context).size.width / 2,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        shape: BoxShape.rectangle,
-                                        gradient: colors[index]),
-                                    child: Text(
-                                      topGenres[index],
-                                      textAlign: TextAlign.center,
-                                      style: const TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold),
                                     ),
-                                  ),
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 0),
-                          child: Text(
-                            'Browse all',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16),
-                          ),
-                        ),
-                        GridView.count(
-                          shrinkWrap: true,
-                          physics: BouncingScrollPhysics(),
-                          crossAxisCount: 2,
-                          children: List.generate(
-                            browseAll.length,
-                            (index) {
-                              return Padding(
-                                padding: const EdgeInsets.all(18.0),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    // log(index.toString());
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => Songs(
-                                          browseAll[index],
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                  child: Container(
-                                    alignment: Alignment.center,
-                                    width:
-                                        MediaQuery.of(context).size.width / 2,
-                                    decoration: BoxDecoration(
+                                  );
+                                },
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  width: MediaQuery.of(context).size.width / 2,
+                                  decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20),
                                       shape: BoxShape.rectangle,
-                                      gradient: colors[index],
-                                    ),
-                                    child: Text(
-                                      browseAll[index],
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold),
-                                    ),
+                                      gradient: colors[index]),
+                                  child: Text(
+                                    topGenres[index],
+                                    textAlign: TextAlign.center,
+                                    style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                 ),
-                              );
-                            },
-                          ),
+                              ),
+                            );
+                          },
                         ),
-                      ],
-                    ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 0),
+                        child: Text(
+                          'Browse all',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16),
+                        ),
+                      ),
+                      GridView.count(
+                        shrinkWrap: true,
+                        physics: BouncingScrollPhysics(),
+                        crossAxisCount: 2,
+                        children: List.generate(
+                          browseAll.length,
+                          (index) {
+                            return Padding(
+                              padding: const EdgeInsets.all(18.0),
+                              child: GestureDetector(
+                                onTap: () {
+                                  // log(index.toString());
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Songs(
+                                        browseAll[index],
+                                      ),
+                                    ),
+                                  );
+                                },
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  width: MediaQuery.of(context).size.width / 2,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    shape: BoxShape.rectangle,
+                                    gradient: colors[index],
+                                  ),
+                                  child: Text(
+                                    browseAll[index],
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ],
                   ),
-                )
-              ],
-            ),
+                ),
+              )
+            ],
           ),
         ),
       ),

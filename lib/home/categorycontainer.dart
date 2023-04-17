@@ -19,9 +19,6 @@ class _CreateCategoryContainerState extends State<CreateCategoryContainer> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // setState(() {
-        //   index = 3;
-        // });
         Navigator.push(
           context,
           MaterialPageRoute(

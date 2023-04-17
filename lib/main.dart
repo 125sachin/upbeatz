@@ -1,7 +1,5 @@
-import 'package:emplayer/home/categorycontainer.dart';
 import 'package:emplayer/library/library.dart';
 import 'package:emplayer/library/miniplayer.dart';
-import 'package:emplayer/library/songs.dart';
 import 'package:emplayer/search/searchPage.dart';
 import 'package:flutter/material.dart';
 import 'package:emplayer/home/homepage.dart';
@@ -18,10 +16,13 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final screens = [HomePage(), SearchTab(), Library(), Songs("title")];
-  int currentScreenIndex = 0;
+  final screens = [
+    const HomePage(),
+    SearchTab(),
+    const Library(),
+  ];
 
-  // int currentScreenIndex = ReturnNum().getNum();
+  int currentScreenIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -46,13 +47,17 @@ class _MyAppState extends State<MyApp> {
               stops: const [0.01, 0.4],
             ),
           ),
-          child: screens[currentScreenIndex],
+          child: IndexedStack(
+            index: currentScreenIndex,
+            children: screens,
+          ),
         ),
         bottomNavigationBar: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            MiniPlayer(),
+            const MiniPlayer(),
             BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
               currentIndex: currentScreenIndex,
               backgroundColor: Colors.black,
               selectedItemColor: Colors.green[800],
@@ -89,3 +94,59 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+
+
+/* 
+
+CupertinoApp(
+      debugShowCheckedModeBanner: false,
+      theme: const CupertinoThemeData(
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: Colors.black,
+      ),
+      home: CupertinoTabScaffold(
+        tabBar: CupertinoTabBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.music_note),
+            ),
+          ],
+        ),
+        tabBuilder: (context, index) {
+          switch (index) {
+            case 0:
+              return CupertinoTabView(
+                builder: (context) {
+                  return const CupertinoPageScaffold(child: HomePage());
+                },
+              );
+            case 1:
+              return CupertinoTabView(
+                builder: (context) {
+                  return CupertinoPageScaffold(child: SearchTab());
+                },
+              );
+            case 2:
+              return CupertinoTabView(
+                builder: (context) {
+                  return const CupertinoPageScaffold(child: Library());
+                },
+              );
+            default:
+              return CupertinoTabView(
+                builder: (context) {
+                  return const CupertinoPageScaffold(child: HomePage());
+                },
+              );
+          }
+        },
+      ),
+    );
+
+*/
