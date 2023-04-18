@@ -16,13 +16,12 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final screens = [
-    const HomePage(),
-    SearchTab(),
-    const Library(),
-  ];
+  int _currentIndex = 0;
 
-  int currentScreenIndex = 0;
+  final _page1 = GlobalKey<NavigatorState>();
+  final _page2 = GlobalKey<NavigatorState>();
+  final _page3 = GlobalKey<NavigatorState>();
+  final _page4 = GlobalKey<NavigatorState>();
 
   @override
   Widget build(BuildContext context) {
@@ -34,59 +33,61 @@ class _MyAppState extends State<MyApp> {
         brightness: Brightness.dark,
       ),
       home: Scaffold(
-        extendBody: true,
-        body: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Colors.deepPurpleAccent.shade400,
-                Colors.black,
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              stops: const [0.01, 0.4],
+        body: IndexedStack(
+          index: _currentIndex,
+          children: <Widget>[
+            Navigator(
+              key: _page1,
+              onGenerateRoute: (route) => MaterialPageRoute(
+                settings: route,
+                builder: (context) => HomePage(),
+              ),
             ),
-          ),
-          child: IndexedStack(
-            index: currentScreenIndex,
-            children: screens,
-          ),
+            Navigator(
+              key: _page2,
+              onGenerateRoute: (route) => MaterialPageRoute(
+                settings: route,
+                builder: (context) => SearchTab(),
+              ),
+            ),
+            Navigator(
+              key: _page3,
+              onGenerateRoute: (route) => MaterialPageRoute(
+                settings: route,
+                builder: (context) => Library(),
+              ),
+            ),
+          ],
         ),
         bottomNavigationBar: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const MiniPlayer(),
-            BottomNavigationBar(
-              type: BottomNavigationBarType.fixed,
-              currentIndex: currentScreenIndex,
-              backgroundColor: Colors.black,
-              selectedItemColor: Colors.green[800],
-              iconSize: 30,
-              unselectedItemColor: Colors.white,
-              showSelectedLabels: false,
-              showUnselectedLabels: false,
-              onTap: (value) => {
-                currentScreenIndex = value,
-                setState(() {}),
-                // index = returnNum.getNum(),
-              },
-              items: const [
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.home_rounded),
-                  label: "Home",
-                  backgroundColor: Colors.black,
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.search_rounded),
-                  label: "Search",
-                  backgroundColor: Colors.black,
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.library_music_rounded),
-                  label: "Library",
-                  backgroundColor: Colors.black,
-                ),
-              ],
+            MiniPlayer(),
+            BottomAppBar(
+              clipBehavior: Clip.antiAlias,
+              child: BottomNavigationBar(
+                backgroundColor: Colors.black,
+                selectedItemColor: Colors.green[800],
+                iconSize: 30,
+                unselectedItemColor: Colors.white,
+                showSelectedLabels: false,
+                showUnselectedLabels: false,
+                currentIndex: _currentIndex,
+                onTap: (index) {
+                  setState(() {
+                    _currentIndex = index;
+                  });
+                },
+                type: BottomNavigationBarType.fixed,
+                items: const <BottomNavigationBarItem>[
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.home_rounded), label: 'Home'),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.search_rounded), label: 'Statistics'),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.library_music_rounded), label: 'Wallet'),
+                ],
+              ),
             ),
           ],
         ),
@@ -94,7 +95,6 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
 
 /* 
 
