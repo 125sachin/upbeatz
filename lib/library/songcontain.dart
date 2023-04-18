@@ -1,5 +1,4 @@
 import 'package:emplayer/Models/music.dart';
-import 'package:emplayer/library/miniplayer.dart';
 import 'package:flutter/material.dart';
 
 class SongContainer extends StatefulWidget {
@@ -13,10 +12,8 @@ class SongContainer extends StatefulWidget {
 class _SongContainerState extends State<SongContainer> {
   @override
   Widget build(BuildContext context) {
-    Music music = widget.music;
     String songName = widget.music.name;
     String artist = widget.music.artists;
-    String url = widget.music.url;
     String image = widget.music.image;
 
     return Padding(

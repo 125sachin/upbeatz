@@ -1,4 +1,3 @@
-import 'package:emplayer/library/miniplayer.dart';
 import 'package:emplayer/library/songcontain.dart';
 import 'package:flutter/material.dart';
 import 'package:emplayer/Models/music.dart';
@@ -16,7 +15,7 @@ class Songs extends StatefulWidget {
 }
 
 class _SongsState extends State<Songs> {
-  final screens = [HomePage(), SearchTab(), Library()];
+  final screens = [const HomePage(), SearchTab(), const Library()];
   int currentScreenIndex = 0;
 
   List<Widget> createListOfSongs() {
@@ -55,42 +54,43 @@ class _SongsState extends State<Songs> {
           ],
         ),
       ),
-      // bottomNavigationBar: Column(
-      //   mainAxisSize: MainAxisSize.min,
-      //   children: [
-      //     MiniPlayer(),
-      //     BottomNavigationBar(
-      //       currentIndex: currentScreenIndex,
-      //       backgroundColor: Colors.black,
-      //       selectedItemColor: Colors.green[800],
-      //       iconSize: 30,
-      //       unselectedItemColor: Colors.white,
-      //       showSelectedLabels: false,
-      //       showUnselectedLabels: false,
-      //       onTap: (value) => {
-      //         currentScreenIndex = value,
-      //         setState(() {}),
-      //       },
-      //       items: const [
-      //         BottomNavigationBarItem(
-      //           icon: Icon(Icons.home_rounded),
-      //           label: "Home",
-      //           backgroundColor: Colors.black,
-      //         ),
-      //         BottomNavigationBarItem(
-      //           icon: Icon(Icons.search_rounded),
-      //           label: "Search",
-      //           backgroundColor: Colors.black,
-      //         ),
-      //         BottomNavigationBarItem(
-      //           icon: Icon(Icons.library_music_rounded),
-      //           label: "Library",
-      //           backgroundColor: Colors.black,
-      //         ),
-      //       ],
-      //     ),
-      //   ],
-      // ),
-    );
+    )
+        // bottomNavigationBar: Column(
+        //   mainAxisSize: MainAxisSize.min,
+        //   children: [
+        //     MiniPlayer(),
+        //     BottomNavigationBar(
+        //       currentIndex: currentScreenIndex,
+        //       backgroundColor: Colors.black,
+        //       selectedItemColor: Colors.green[800],
+        //       iconSize: 30,
+        //       unselectedItemColor: Colors.white,
+        //       showSelectedLabels: false,
+        //       showUnselectedLabels: false,
+        //       onTap: (value) => {
+        //         currentScreenIndex = value,
+        //         setState(() {}),
+        //       },
+        //       items: const [
+        //         BottomNavigationBarItem(
+        //           icon: Icon(Icons.home_rounded),
+        //           label: "Home",
+        //           backgroundColor: Colors.black,
+        //         ),
+        //         BottomNavigationBarItem(
+        //           icon: Icon(Icons.search_rounded),
+        //           label: "Search",
+        //           backgroundColor: Colors.black,
+        //         ),
+        //         BottomNavigationBarItem(
+        //           icon: Icon(Icons.library_music_rounded),
+        //           label: "Library",
+        //           backgroundColor: Colors.black,
+        //         ),
+        //       ],
+        //     ),
+        //   ],
+        // ),
+        ;
   }
 }

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:emplayer/home/homepage.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -21,7 +21,6 @@ class _MyAppState extends State<MyApp> {
   final _page1 = GlobalKey<NavigatorState>();
   final _page2 = GlobalKey<NavigatorState>();
   final _page3 = GlobalKey<NavigatorState>();
-  final _page4 = GlobalKey<NavigatorState>();
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +39,7 @@ class _MyAppState extends State<MyApp> {
               key: _page1,
               onGenerateRoute: (route) => MaterialPageRoute(
                 settings: route,
-                builder: (context) => HomePage(),
+                builder: (context) => const HomePage(),
               ),
             ),
             Navigator(
@@ -54,7 +53,7 @@ class _MyAppState extends State<MyApp> {
               key: _page3,
               onGenerateRoute: (route) => MaterialPageRoute(
                 settings: route,
-                builder: (context) => Library(),
+                builder: (context) => const Library(),
               ),
             ),
           ],
@@ -62,7 +61,7 @@ class _MyAppState extends State<MyApp> {
         bottomNavigationBar: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            MiniPlayer(),
+            const MiniPlayer(),
             BottomAppBar(
               clipBehavior: Clip.antiAlias,
               child: BottomNavigationBar(

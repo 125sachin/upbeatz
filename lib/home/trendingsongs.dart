@@ -15,7 +15,7 @@ class TrendingSongs extends StatelessWidget {
         height: 220,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(40),
-            gradient: LinearGradient(
+            gradient: const LinearGradient(
               colors: [
                 Color(0xFF4b749f),
                 Color(0xFF243748),

@@ -1,6 +1,6 @@
 import 'package:emplayer/account/helpsupport.dart';
 import 'package:emplayer/login.dart';
-import 'package:emplayer/nav.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'profile/profile.dart';
 import 'setting_page.dart';
@@ -10,6 +10,8 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 class account extends StatelessWidget {
   String imglink =
       'https://i1.sndcdn.com/artworks-07lLa9CDDAxaxgQV-77McEw-t500x500.jpg';
+
+  account({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -50,56 +52,49 @@ class account extends StatelessWidget {
           Container(
             height: 16,
           ),
-          Container(
-            child: Row(children: [
-              Padding(
-                padding: EdgeInsets.only(top: 10, left: 25, bottom: 20),
-                child: Container(
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Account",
-                      style: TextStyle(
-                          fontSize: 36,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w800,
-                          letterSpacing: 0.4),
-                    ),
-                  ),
+          Row(children: const [
+            Padding(
+              padding: EdgeInsets.only(top: 10, left: 25, bottom: 20),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Account",
+                  style: TextStyle(
+                      fontSize: 36,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w800,
+                      letterSpacing: 0.4),
                 ),
-              )
-            ]),
-          ),
+              ),
+            )
+          ]),
           Container(
-            margin: EdgeInsets.only(top: 30, bottom: 30),
+            margin: const EdgeInsets.only(top: 30, bottom: 30),
             child: Row(
               children: [
-                Container(
-                  // alignment: Alignment.centerLeft,
-                  child: GestureDetector(
-                    onTap: (() {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => Largeimg(
-                                imglink: imglink,
-                              )));
-                    }),
-                    child: Container(
-                      // alignment: Alignment.centerLeft,
-                      width: 70,
-                      height: 70,
+                GestureDetector(
+                  onTap: (() {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => Largeimg(
+                              imglink: imglink,
+                            )));
+                  }),
+                  child: Container(
+                    // alignment: Alignment.centerLeft,
+                    width: 70,
+                    height: 70,
 
-                      // width: 90,
-                      // height: 90,
-                      margin: EdgeInsets.only(right: 13, left: 13),
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              fit: BoxFit.cover, image: NetworkImage(imglink)),
-                          color: Color.fromARGB(255, 231, 231, 231),
-                          borderRadius: BorderRadius.circular(100)),
-                    ),
+                    // width: 90,
+                    // height: 90,
+                    margin: const EdgeInsets.only(right: 13, left: 13),
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            fit: BoxFit.cover, image: NetworkImage(imglink)),
+                        color: const Color.fromARGB(255, 231, 231, 231),
+                        borderRadius: BorderRadius.circular(100)),
                   ),
                 ),
-                Container(
+                SizedBox(
                   width: 180,
                   child: AnimatedTextKit(
                     animatedTexts: [
@@ -142,14 +137,22 @@ class account extends StatelessWidget {
                     ],
                     isRepeatingAnimation: true,
                     onTap: () {
-                      print("Tap Event");
+                      if (kDebugMode) {
+                        if (kDebugMode) {
+                          if (kDebugMode) {
+                            if (kDebugMode) {
+                              print("Tap Event");
+                            }
+                          }
+                        }
+                      }
                     },
                   ),
                 )
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 8,
           ),
           GestureDetector(
@@ -164,26 +167,28 @@ class account extends StatelessWidget {
             },
             child: Container(
               height: 43,
-              margin: EdgeInsets.only(top: 30, left: 7, right: 6, bottom: 12),
+              margin:
+                  const EdgeInsets.only(top: 30, left: 7, right: 6, bottom: 12),
               decoration: BoxDecoration(
-                  border: Border.all(color: Color.fromARGB(255, 255, 255, 255)),
+                  border: Border.all(
+                      color: const Color.fromARGB(255, 255, 255, 255)),
                   borderRadius: BorderRadius.circular(10)),
               child: Row(
                 // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
                     width: 30,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                     // height: 50,
-                    child: Icon(
+                    child: const Icon(
                       Icons.person,
                       size: 32,
                       color: Colors.white,
                     ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
                   ),
-                  Container(
+                  const SizedBox(
                     width: 100,
                     // color: Colors.red,
                     // alignment: Alignment.centerLeft,
@@ -203,10 +208,13 @@ class account extends StatelessWidget {
                   ),
                   Container(
                     margin: EdgeInsets.only(left: size.width - 350),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
                     // alignment: Alignment.center,
                     child: IconButton(
                       icon: const Icon(Icons.navigate_next_rounded),
-                      color: Color.fromARGB(255, 255, 255, 255),
+                      color: const Color.fromARGB(255, 255, 255, 255),
                       iconSize: 30,
                       onPressed: () {
                         Navigator.push(
@@ -219,9 +227,6 @@ class account extends StatelessWidget {
                         );
                       },
                     ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
                   )
                 ],
               ),
@@ -229,14 +234,15 @@ class account extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => setting()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const setting()));
             },
             child: Container(
               height: 43,
-              margin: EdgeInsets.only(left: 7, right: 5, bottom: 12),
+              margin: const EdgeInsets.only(left: 7, right: 5, bottom: 12),
               decoration: BoxDecoration(
-                  border: Border.all(color: Color.fromARGB(255, 255, 255, 255)),
+                  border: Border.all(
+                      color: const Color.fromARGB(255, 255, 255, 255)),
                   // color: Color.fromARGB(255, 0, 0, 0),
                   borderRadius: BorderRadius.circular(10)),
               child: Row(
@@ -245,8 +251,11 @@ class account extends StatelessWidget {
                   Container(
                     width: 50,
                     height: 50,
-                    margin: EdgeInsets.only(top: 0),
+                    margin: const EdgeInsets.only(top: 0),
                     alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                     child: Image.asset(
                       'assets/images/icons/setting2.png',
                       width: 24,
@@ -254,11 +263,8 @@ class account extends StatelessWidget {
                       fit: BoxFit.fill,
                       // fit: BoxFit.fill,
                     ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
                   ),
-                  Container(
+                  const SizedBox(
                       width: 230,
                       // margin: EdgeInsets.only(left: size.width / 21),
                       child: Text(
@@ -277,17 +283,19 @@ class account extends StatelessWidget {
                     height: 50,
                     margin: EdgeInsets.only(left: size.width - 350),
                     alignment: Alignment.center,
-                    child: IconButton(
-                      icon: const Icon(Icons.navigate_next_rounded),
-                      color: Color.fromARGB(255, 255, 255, 255),
-                      iconSize: 30,
-                      onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => setting()));
-                      },
-                    ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: IconButton(
+                      icon: const Icon(Icons.navigate_next_rounded),
+                      color: const Color.fromARGB(255, 255, 255, 255),
+                      iconSize: 30,
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const setting()));
+                      },
                     ),
                   )
                 ],
@@ -296,14 +304,16 @@ class account extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => History()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const History()));
             },
             child: Container(
               height: 43,
-              margin: EdgeInsets.only(top: 2, left: 7, right: 6, bottom: 12),
+              margin:
+                  const EdgeInsets.only(top: 2, left: 7, right: 6, bottom: 12),
               decoration: BoxDecoration(
-                  border: Border.all(color: Color.fromARGB(255, 255, 255, 255)),
+                  border: Border.all(
+                      color: const Color.fromARGB(255, 255, 255, 255)),
                   // color: Color.fromARGB(255, 0, 0, 0),
                   borderRadius: BorderRadius.circular(10)),
               child: Row(
@@ -312,18 +322,18 @@ class account extends StatelessWidget {
                   Container(
                     width: 50,
                     height: 50,
-                    margin: EdgeInsets.only(top: 0),
+                    margin: const EdgeInsets.only(top: 0),
                     alignment: Alignment.center,
-                    child: Icon(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: const Icon(
                       Icons.history_rounded,
                       size: 31,
                       color: Colors.white,
                     ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
                   ),
-                  Container(
+                  const SizedBox(
                       width: 230,
                       child: Text(
                         " History & Privacy",
@@ -341,17 +351,19 @@ class account extends StatelessWidget {
                     height: 50,
                     margin: EdgeInsets.only(left: size.width - 350),
                     alignment: Alignment.center,
-                    child: IconButton(
-                      icon: const Icon(Icons.navigate_next_rounded),
-                      color: Color.fromARGB(255, 255, 255, 255),
-                      iconSize: 30,
-                      onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => History()));
-                      },
-                    ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: IconButton(
+                      icon: const Icon(Icons.navigate_next_rounded),
+                      color: const Color.fromARGB(255, 255, 255, 255),
+                      iconSize: 30,
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const History()));
+                      },
                     ),
                   )
                 ],
@@ -360,14 +372,16 @@ class account extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => help()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const help()));
             },
             child: Container(
               height: 43,
-              margin: EdgeInsets.only(top: 2, left: 7, right: 6, bottom: 12),
+              margin:
+                  const EdgeInsets.only(top: 2, left: 7, right: 6, bottom: 12),
               decoration: BoxDecoration(
-                  border: Border.all(color: Color.fromARGB(255, 255, 255, 255)),
+                  border: Border.all(
+                      color: const Color.fromARGB(255, 255, 255, 255)),
                   // color: Color.fromARGB(255, 0, 0, 0),
                   borderRadius: BorderRadius.circular(10)),
               child: Row(
@@ -375,18 +389,18 @@ class account extends StatelessWidget {
                   Container(
                     width: 50,
                     height: 50,
-                    margin: EdgeInsets.only(top: 0),
+                    margin: const EdgeInsets.only(top: 0),
                     alignment: Alignment.center,
-                    child: Icon(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: const Icon(
                       Icons.headphones,
                       size: 29,
                       color: Colors.white,
                     ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
                   ),
-                  Container(
+                  const SizedBox(
                       width: 230,
                       child: Text(
                         " Help & Support",
@@ -404,17 +418,19 @@ class account extends StatelessWidget {
                     height: 50,
                     margin: EdgeInsets.only(left: size.width - 350),
                     alignment: Alignment.center,
-                    child: IconButton(
-                      icon: const Icon(Icons.navigate_next_rounded),
-                      color: Color.fromARGB(255, 255, 255, 255),
-                      iconSize: 30,
-                      onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => help()));
-                      },
-                    ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: IconButton(
+                      icon: const Icon(Icons.navigate_next_rounded),
+                      color: const Color.fromARGB(255, 255, 255, 255),
+                      iconSize: 30,
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const help()));
+                      },
                     ),
                   )
                 ],
@@ -423,14 +439,16 @@ class account extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => Loginpage()));
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const Loginpage()));
             },
             child: Container(
               height: 43,
-              margin: EdgeInsets.only(top: 2, left: 7, right: 6, bottom: 12),
+              margin:
+                  const EdgeInsets.only(top: 2, left: 7, right: 6, bottom: 12),
               decoration: BoxDecoration(
-                border: Border.all(color: Color.fromARGB(255, 255, 255, 255)),
+                border:
+                    Border.all(color: const Color.fromARGB(255, 255, 255, 255)),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Row(
@@ -438,22 +456,22 @@ class account extends StatelessWidget {
                   Container(
                     width: 50,
                     height: 50,
-                    margin: EdgeInsets.only(left: 0),
+                    margin: const EdgeInsets.only(left: 0),
                     alignment: Alignment.center,
-                    child: Icon(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: const Icon(
                       Icons.login_rounded,
                       size: 30,
                       color: Colors.white,
                     ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
                   ),
                   Container(
                       width: 230,
-                      margin: EdgeInsets.only(left: 5),
+                      margin: const EdgeInsets.only(left: 5),
                       alignment: Alignment.centerLeft,
-                      child: Text(
+                      child: const Text(
                         " Login",
                         style: TextStyle(
                           fontFamily: 'poppins-Regular',
@@ -469,17 +487,17 @@ class account extends StatelessWidget {
                     height: 50,
                     margin: EdgeInsets.only(left: size.width - 355),
                     alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
                     child: IconButton(
                       icon: const Icon(Icons.navigate_next_rounded),
-                      color: Color.fromARGB(255, 255, 255, 255),
+                      color: const Color.fromARGB(255, 255, 255, 255),
                       iconSize: 30,
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => Loginpage()));
+                            builder: (context) => const Loginpage()));
                       },
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
                     ),
                   )
                 ],
@@ -494,17 +512,17 @@ class account extends StatelessWidget {
                     return AlertDialog(
                       // Retrieve the text the that user has entered by using the
                       // TextEditingController.
-                      content: Container(
+                      content: SizedBox(
                         height: 50,
                         // width: 450,
                         // margin: EdgeInsets.only(top: 200),
                         child: Center(
-                            child: Container(
+                            child: SizedBox(
                           // width: 450.0,
                           height: 50,
 
                           child: DefaultTextStyle(
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: Color.fromARGB(255, 255, 255, 255),
                                 fontSize: 27.0,
                                 fontFamily: 'right'),
@@ -514,7 +532,9 @@ class account extends StatelessWidget {
                                   TypewriterAnimatedText('Under Process'),
                               ],
                               onTap: () {
-                                print("Tap Event");
+                                if (kDebugMode) {
+                                  print("Tap Event");
+                                }
                               },
                             ),
                           ),
@@ -525,30 +545,32 @@ class account extends StatelessWidget {
             },
             child: Container(
               height: 43,
-              margin: EdgeInsets.only(top: 2, left: 7, right: 6, bottom: 12),
+              margin:
+                  const EdgeInsets.only(top: 2, left: 7, right: 6, bottom: 12),
               decoration: BoxDecoration(
-                  border: Border.all(color: Color.fromARGB(255, 255, 255, 255)),
+                  border: Border.all(
+                      color: const Color.fromARGB(255, 255, 255, 255)),
                   borderRadius: BorderRadius.circular(10)),
               child: Row(
                 children: [
                   Container(
                     width: 50,
                     height: 50,
-                    margin: EdgeInsets.only(left: 5),
+                    margin: const EdgeInsets.only(left: 5),
                     alignment: Alignment.center,
-                    child: Icon(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: const Icon(
                       Icons.logout_rounded,
                       size: 30,
                       color: Colors.white,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
                     ),
                   ),
                   Container(
                       width: 230,
                       alignment: Alignment.centerLeft,
-                      child: Text(
+                      child: const Text(
                         " Logout",
                         style: TextStyle(
                           fontFamily: 'poppins-Regular',
@@ -564,9 +586,12 @@ class account extends StatelessWidget {
                     height: 50,
                     margin: EdgeInsets.only(left: size.width - 355),
                     alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
                     child: IconButton(
                       icon: const Icon(Icons.navigate_next_rounded),
-                      color: Color.fromARGB(255, 255, 255, 255),
+                      color: const Color.fromARGB(255, 255, 255, 255),
                       iconSize: 30,
                       onPressed: () {
                         showDialog(
@@ -575,16 +600,16 @@ class account extends StatelessWidget {
                               return AlertDialog(
                                 // Retrieve the text the that user has entered by using the
                                 // TextEditingController.
-                                content: Container(
+                                content: SizedBox(
                                   height: 50,
                                   width: 450,
                                   // margin: EdgeInsets.only(top: 200),
                                   child: Center(
-                                      child: Container(
+                                      child: SizedBox(
                                     width: 450.0,
                                     height: 50,
                                     child: DefaultTextStyle(
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: Color.fromARGB(
                                               255, 255, 255, 255),
                                           fontSize: 27.0,
@@ -605,9 +630,6 @@ class account extends StatelessWidget {
                               );
                             });
                       },
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
                     ),
                   )
                 ],

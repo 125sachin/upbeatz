@@ -23,7 +23,7 @@ class Library extends StatelessWidget {
             ),
           ),
           Column(
-            children: [
+            children: const [
               Rectangle(0, "assets/images/icons/music.png", 0),
               Rectangle(1, "assets/images/icons/music.png", 1),
               Rectangle(2, "assets/images/icons/music.png", 2),

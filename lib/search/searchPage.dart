@@ -1,7 +1,4 @@
-import 'dart:developer';
-
 import 'package:emplayer/library/songs.dart';
-import 'package:emplayer/nav.dart';
 import 'package:flutter/material.dart';
 
 class SearchTab extends StatelessWidget {
@@ -17,41 +14,43 @@ class SearchTab extends StatelessWidget {
     'Focus'
   ];
   final List<Gradient> colors = [
-    LinearGradient(colors: [
+    const LinearGradient(colors: [
       Color(0xFFFFCB6B),
       Color(0xFF3D8BFF),
     ], begin: Alignment.topLeft, end: Alignment.bottomRight),
-    LinearGradient(colors: [
+    const LinearGradient(colors: [
       Color(0xFF439CFB),
       Color(0xFFF187FB),
     ], begin: Alignment.topLeft, end: Alignment.bottomRight),
-    LinearGradient(colors: [
+    const LinearGradient(colors: [
       Color(0xFF1DBDE6),
       Color(0xFFF1515E),
     ], begin: Alignment.topLeft, end: Alignment.bottomRight),
-    LinearGradient(colors: [
+    const LinearGradient(colors: [
       Color(0xFFAEFB2A),
       Color.fromARGB(255, 14, 134, 96),
     ], begin: Alignment.topLeft, end: Alignment.bottomRight),
-    LinearGradient(colors: [
+    const LinearGradient(colors: [
       Color(0xFF42047E),
       Color(0xFF07F49E),
     ], begin: Alignment.topLeft, end: Alignment.bottomRight),
-    LinearGradient(colors: [
+    const LinearGradient(colors: [
       Color(0xFFFC9305),
       Color(0xFFF20094),
     ], begin: Alignment.topLeft, end: Alignment.bottomRight),
-    LinearGradient(colors: [
+    const LinearGradient(colors: [
       Color(0xFFAE1B1E),
       Color(0xFFFC9F32),
     ], begin: Alignment.topLeft, end: Alignment.bottomRight),
-    LinearGradient(colors: [
+    const LinearGradient(colors: [
       Color(0xFF9BAFD9),
       Color(0xFF103783),
     ], begin: Alignment.topLeft, end: Alignment.bottomRight),
   ];
 
   int i = 0;
+
+  SearchTab({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -81,11 +80,10 @@ class SearchTab extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Row(
-                children: <Widget>[
+                children: const <Widget>[
                   Expanded(
                     child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: MyCustomForm()),
+                        padding: EdgeInsets.all(8.0), child: MyCustomForm()),
                   ),
                 ],
               ),
@@ -147,8 +145,8 @@ class SearchTab extends StatelessWidget {
                           },
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 0),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 0),
                         child: Text(
                           'Browse all',
                           style: TextStyle(
@@ -159,7 +157,7 @@ class SearchTab extends StatelessWidget {
                       ),
                       GridView.count(
                         shrinkWrap: true,
-                        physics: BouncingScrollPhysics(),
+                        physics: const BouncingScrollPhysics(),
                         crossAxisCount: 2,
                         children: List.generate(
                           browseAll.length,
@@ -189,7 +187,7 @@ class SearchTab extends StatelessWidget {
                                   child: Text(
                                     browseAll[index],
                                     textAlign: TextAlign.center,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: Colors.white,
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold),
@@ -213,7 +211,7 @@ class SearchTab extends StatelessWidget {
 }
 
 class MyCustomForm extends StatefulWidget {
-  MyCustomForm({super.key});
+  const MyCustomForm({super.key});
   @override
   State<MyCustomForm> createState() => _MyCustomFormState();
 }
@@ -223,12 +221,12 @@ class _MyCustomFormState extends State<MyCustomForm> {
   Widget build(BuildContext context) {
     return (Container(
       height: 50,
-      padding: EdgeInsets.only(left: 10),
+      padding: const EdgeInsets.only(left: 10),
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 255, 255, 255),
+        color: const Color.fromARGB(255, 255, 255, 255),
         borderRadius: BorderRadius.circular(11),
       ),
-      child: TextField(
+      child: const TextField(
         cursorColor: Colors.black,
         keyboardType: TextInputType.name,
         style: TextStyle(

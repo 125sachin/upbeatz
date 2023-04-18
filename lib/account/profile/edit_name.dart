@@ -1,7 +1,5 @@
-import 'package:emplayer/account/account_page.dart';
 import 'package:emplayer/account/profile/profile.dart';
 import 'package:flutter/material.dart';
-import '../account_page.dart';
 
 class editname extends StatefulWidget {
   const editname({super.key});
@@ -13,15 +11,13 @@ class editname extends StatefulWidget {
 class _editnameState extends State<editname> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SafeArea(
           child: Scaffold(
-        backgroundColor: Color.fromARGB(255, 0, 0, 0),
+        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [
               Color.fromARGB(255, 0, 0, 0),
               Color.fromARGB(255, 24, 24, 24),
@@ -32,38 +28,34 @@ class _editnameState extends State<editname> {
           ),
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
                 children: [
-                  Container(
-                    child: IconButton(
-                        icon: Icon(Icons.navigate_before_rounded),
+                  IconButton(
+                      icon: const Icon(Icons.navigate_before_rounded),
+                      color: Colors.white,
+                      iconSize: 46,
+                      onPressed: () {
+                        Navigator.pop(context);
+                      }),
+                  const Text(
+                    "Edit Username",
+                    style: TextStyle(
+                        fontSize: 25,
+                        fontFamily: 'Right',
                         color: Colors.white,
-                        iconSize: 46,
-                        onPressed: () {
-                          Navigator.pop(context);
-                        }),
-                  ),
-                  Container(
-                    child: Text(
-                      "Edit Username",
-                      style: TextStyle(
-                          fontSize: 25,
-                          fontFamily: 'Right',
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 0.4),
-                    ),
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 0.4),
                   ),
                 ],
               ),
               Container(
-                margin: EdgeInsets.only(top: 150),
+                margin: const EdgeInsets.only(top: 150),
                 width: 385,
                 height: 120,
-                child: MyCustomForm(),
+                child: const MyCustomForm(),
               ),
             ],
           ),
@@ -74,7 +66,7 @@ class _editnameState extends State<editname> {
 }
 
 class MyCustomForm extends StatefulWidget {
-  MyCustomForm({super.key});
+  const MyCustomForm({super.key});
 
   @override
   State<MyCustomForm> createState() => _MyCustomFormState();
@@ -102,7 +94,7 @@ class _MyCustomFormState extends State<MyCustomForm> {
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 0),
           child: TextField(
             controller: myController,
-            style: TextStyle(
+            style: const TextStyle(
                 color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
             autofocus: true,
             decoration: InputDecoration(
@@ -114,9 +106,9 @@ class _MyCustomFormState extends State<MyCustomForm> {
                       color: Color.fromARGB(255, 45, 157, 255)),
                   borderRadius: BorderRadius.circular(17),
                 ),
-                fillColor: Color.fromARGB(255, 74, 74, 74),
+                fillColor: const Color.fromARGB(255, 74, 74, 74),
                 labelText: 'Enter Your Username',
-                labelStyle: TextStyle(
+                labelStyle: const TextStyle(
                     fontSize: 17,
                     fontFamily: 'Poppins-Regular',
                     color: Color.fromARGB(255, 45, 157, 255))),
@@ -127,9 +119,12 @@ class _MyCustomFormState extends State<MyCustomForm> {
           height: 50,
           margin: EdgeInsets.only(left: size.width / 1.25),
           alignment: Alignment.center,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+          ),
           child: IconButton(
             icon: const Icon(Icons.navigate_next_rounded),
-            color: Color.fromARGB(255, 255, 255, 255),
+            color: const Color.fromARGB(255, 255, 255, 255),
             iconSize: 44,
             onPressed: () {
               Navigator.pop(context);
@@ -142,9 +137,6 @@ class _MyCustomFormState extends State<MyCustomForm> {
                           )));
               // Navigator.pop(context);
             },
-          ),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
           ),
         )
       ],

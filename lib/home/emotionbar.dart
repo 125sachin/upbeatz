@@ -7,7 +7,7 @@ class Mood extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(15),
       child: Container(
         clipBehavior: Clip.antiAlias,
         decoration: BoxDecoration(
@@ -68,7 +68,7 @@ class Mood extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Songs('Pleasure'),
+                              builder: (context) => const Songs('Pleasure'),
                             ),
                           );
                         },
@@ -88,7 +88,7 @@ class Mood extends StatelessWidget {
                       width: 150,
                       decoration: BoxDecoration(
                           //color: Colors.amber,
-                          gradient: LinearGradient(
+                          gradient: const LinearGradient(
                               colors: [
                                 Color(0xFF40c9ff),
                                 Color(0xFFe81cff),
@@ -101,11 +101,11 @@ class Mood extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Songs('Calm'),
+                              builder: (context) => const Songs('Calm'),
                             ),
                           );
                         },
-                        child: Text(
+                        child: const Text(
                           'CALM',
                           style: TextStyle(
                               fontSize: 20,
@@ -125,28 +125,9 @@ class Mood extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Container(
-                      child: TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Songs('Sad'),
-                            ),
-                          );
-                        },
-                        child: Text(
-                          'SAD',
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Gotham',
-                              color: Colors.black),
-                          //selectionColor: Colors.black,
-                        ),
-                      ),
                       decoration: BoxDecoration(
                           //color: Colors.amber,
-                          gradient: LinearGradient(
+                          gradient: const LinearGradient(
                               colors: [
                                 Color(0xFFfff95b),
                                 Color(0xFFff930f),
@@ -156,19 +137,17 @@ class Mood extends StatelessWidget {
                           borderRadius: BorderRadius.circular(40)),
                       height: 80,
                       width: 150,
-                    ),
-                    Container(
                       child: TextButton(
                         onPressed: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Songs('Lonely'),
+                              builder: (context) => const Songs('Sad'),
                             ),
                           );
                         },
-                        child: Text(
-                          'LONELY',
+                        child: const Text(
+                          'SAD',
                           style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -177,9 +156,11 @@ class Mood extends StatelessWidget {
                           //selectionColor: Colors.black,
                         ),
                       ),
+                    ),
+                    Container(
                       decoration: BoxDecoration(
                           //color: Colors.amber,
-                          gradient: LinearGradient(
+                          gradient: const LinearGradient(
                               colors: [
                                 Color(0xFF60efff),
                                 Color(0xFF0061ff),
@@ -189,6 +170,25 @@ class Mood extends StatelessWidget {
                           borderRadius: BorderRadius.circular(40)),
                       height: 80,
                       width: 150,
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Songs('Lonely'),
+                            ),
+                          );
+                        },
+                        child: const Text(
+                          'LONELY',
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Gotham',
+                              color: Colors.black),
+                          //selectionColor: Colors.black,
+                        ),
+                      ),
                     )
                   ],
                 ),
@@ -199,28 +199,9 @@ class Mood extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Container(
-                      child: TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Songs('Ambient'),
-                            ),
-                          );
-                        },
-                        child: Text(
-                          'AMBIENT',
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Gotham',
-                              color: Colors.black),
-                          //selectionColor: Colors.black,
-                        ),
-                      ),
                       decoration: BoxDecoration(
                           //color: Colors.amber,
-                          gradient: LinearGradient(
+                          gradient: const LinearGradient(
                               colors: [
                                 Color(0xFFf8acff),
                                 Color(0xFF696eff),
@@ -230,19 +211,17 @@ class Mood extends StatelessWidget {
                           borderRadius: BorderRadius.circular(40)),
                       height: 80,
                       width: 150,
-                    ),
-                    Container(
                       child: TextButton(
                         onPressed: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Songs('Boredom'),
+                              builder: (context) => const Songs('Ambient'),
                             ),
                           );
                         },
-                        child: Text(
-                          'BOREDOM',
+                        child: const Text(
+                          'AMBIENT',
                           style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -251,9 +230,11 @@ class Mood extends StatelessWidget {
                           //selectionColor: Colors.black,
                         ),
                       ),
+                    ),
+                    Container(
                       decoration: BoxDecoration(
                           //color: Colors.amber,
-                          gradient: LinearGradient(
+                          gradient: const LinearGradient(
                               colors: [
                                 Color(0xFF9bafd9),
                                 Color(0xFF42047e),
@@ -263,6 +244,25 @@ class Mood extends StatelessWidget {
                           borderRadius: BorderRadius.circular(40)),
                       height: 80,
                       width: 150,
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Songs('Boredom'),
+                            ),
+                          );
+                        },
+                        child: const Text(
+                          'BOREDOM',
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Gotham',
+                              color: Colors.black),
+                          //selectionColor: Colors.black,
+                        ),
+                      ),
                     )
                   ],
                 ),
@@ -273,28 +273,9 @@ class Mood extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Container(
-                      child: TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Songs('Romantic'),
-                            ),
-                          );
-                        },
-                        child: Text(
-                          'ROMANTIC',
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Gotham',
-                              color: Colors.black),
-                          //selectionColor: Colors.black,
-                        ),
-                      ),
                       decoration: BoxDecoration(
                           //color: Colors.amber,
-                          gradient: LinearGradient(
+                          gradient: const LinearGradient(
                               colors: [
                                 Color(0xFF07f49e),
                                 Color(0xFFf187fb),
@@ -304,19 +285,17 @@ class Mood extends StatelessWidget {
                           borderRadius: BorderRadius.circular(40)),
                       height: 80,
                       width: 150,
-                    ),
-                    Container(
                       child: TextButton(
                         onPressed: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Songs('Revenge'),
+                              builder: (context) => const Songs('Romantic'),
                             ),
                           );
                         },
-                        child: Text(
-                          'REVENGE',
+                        child: const Text(
+                          'ROMANTIC',
                           style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -325,9 +304,11 @@ class Mood extends StatelessWidget {
                           //selectionColor: Colors.black,
                         ),
                       ),
+                    ),
+                    Container(
                       decoration: BoxDecoration(
                           //color: Colors.amber,
-                          gradient: LinearGradient(
+                          gradient: const LinearGradient(
                               colors: [
                                 Color(0xFF43b692),
                                 Color(0xFF099773),
@@ -337,6 +318,25 @@ class Mood extends StatelessWidget {
                           borderRadius: BorderRadius.circular(40)),
                       height: 80,
                       width: 150,
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Songs('Revenge'),
+                            ),
+                          );
+                        },
+                        child: const Text(
+                          'REVENGE',
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Gotham',
+                              color: Colors.black),
+                          //selectionColor: Colors.black,
+                        ),
+                      ),
                     )
                   ],
                 ),

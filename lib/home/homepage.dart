@@ -21,13 +21,13 @@ class _HomePageState extends State<HomePage> {
       child: ListView(
         scrollDirection: Axis.vertical,
         children: [
-          Welcome(),
-          Mood(),
-          Playlists(),
-          TrendingSongs(),
+          const Welcome(),
+          const Mood(),
+          const Playlists(),
+          const TrendingSongs(),
           title('Your Top Artists'),
-          ArtistsCovers(),
-          RemixDeck(),
+          const ArtistsCovers(),
+          const RemixDeck(),
         ],
       ),
     );

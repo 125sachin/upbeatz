@@ -119,16 +119,16 @@ class _RectangleState extends State<Rectangle> {
                 child: Container(
                   height: 100,
                   width: 100,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF2B2D42),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
                   child: Align(
                     alignment: Alignment.center,
                     child: Image.asset(
                       iconName,
                       height: 50,
                     ),
-                  ),
-                  decoration: BoxDecoration(
-                    color: Color(0xFF2B2D42),
-                    borderRadius: BorderRadius.circular(20),
                   ),
                 ),
               ),
@@ -138,7 +138,7 @@ class _RectangleState extends State<Rectangle> {
                     padding: const EdgeInsets.only(top: 40),
                     child: Text(
                       name[x],
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 18,
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
@@ -151,8 +151,8 @@ class _RectangleState extends State<Rectangle> {
                   Padding(
                     padding: const EdgeInsets.only(top: 0, left: 5),
                     child: Text(
-                      songNum[x].toString() + " " + name[x],
-                      style: TextStyle(
+                      "${songNum[x]} ${name[x]}",
+                      style: const TextStyle(
                         color: Colors.white54,
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -165,7 +165,7 @@ class _RectangleState extends State<Rectangle> {
                 padding: const EdgeInsets.all(5),
                 child: IconButton(
                   iconSize: 40,
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.navigate_next_rounded,
                     color: Colors.black,
                   ),

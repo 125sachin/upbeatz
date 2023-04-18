@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'setting_page.dart';
 
 class History extends StatefulWidget {
   const History({super.key});
@@ -9,7 +8,6 @@ class History extends StatefulWidget {
 }
 
 class _HistoryState extends State<History> {
-  @override
   bool val1 = false;
   bool val2 = true;
   bool val3 = true;
@@ -46,6 +44,7 @@ class _HistoryState extends State<History> {
     });
   }
 
+  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
@@ -54,9 +53,9 @@ class _HistoryState extends State<History> {
       debugShowCheckedModeBanner: false,
       home: SafeArea(
           child: Scaffold(
-        backgroundColor: Color.fromARGB(255, 0, 0, 0),
+        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [
               Color.fromARGB(255, 0, 0, 0),
               Color.fromARGB(255, 24, 24, 24),
@@ -68,30 +67,26 @@ class _HistoryState extends State<History> {
           child: ListView(
             scrollDirection: Axis.vertical,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
                 children: [
-                  Container(
-                    child: IconButton(
-                        icon: Icon(Icons.navigate_before_rounded),
+                  IconButton(
+                      icon: const Icon(Icons.navigate_before_rounded),
+                      color: Colors.white,
+                      iconSize: 46,
+                      onPressed: () {
+                        Navigator.pop(context);
+                      }),
+                  const Text(
+                    "History & Privacy",
+                    style: TextStyle(
+                        fontFamily: 'Right',
+                        fontSize: 25,
                         color: Colors.white,
-                        iconSize: 46,
-                        onPressed: () {
-                          Navigator.pop(context);
-                        }),
-                  ),
-                  Container(
-                    child: Text(
-                      "History & Privacy",
-                      style: TextStyle(
-                          fontFamily: 'Right',
-                          fontSize: 25,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 0.4),
-                    ),
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 0.4),
                   )
                 ],
               ),
@@ -100,8 +95,8 @@ class _HistoryState extends State<History> {
                   Container(
                     width: 250,
                     // color: Colors.red,
-                    margin: EdgeInsets.only(top: 30, left: 10),
-                    child: Text(
+                    margin: const EdgeInsets.only(top: 30, left: 10),
+                    child: const Text(
                       "Clear Play History",
                       style: TextStyle(
                           fontSize: 17,
@@ -112,7 +107,7 @@ class _HistoryState extends State<History> {
                   ),
                   Container(
                     margin: EdgeInsets.only(top: 30, left: size.width - 321),
-                    child: Text(
+                    child: const Text(
                       "Clear",
                       style: TextStyle(
                           fontSize: 14,
@@ -127,8 +122,8 @@ class _HistoryState extends State<History> {
                 children: [
                   Container(
                     width: 250,
-                    margin: EdgeInsets.only(top: 27, left: 10),
-                    child: Text(
+                    margin: const EdgeInsets.only(top: 27, left: 10),
+                    child: const Text(
                       "Clear Search History",
                       style: TextStyle(
                           fontSize: 17,
@@ -139,7 +134,7 @@ class _HistoryState extends State<History> {
                   ),
                   Container(
                     margin: EdgeInsets.only(top: 27, left: size.width - 321),
-                    child: Text(
+                    child: const Text(
                       "Clear",
                       style: TextStyle(
                           fontSize: 14,
@@ -154,8 +149,8 @@ class _HistoryState extends State<History> {
                 children: [
                   Container(
                     width: 250,
-                    margin: EdgeInsets.only(top: 30, left: 10),
-                    child: Text(
+                    margin: const EdgeInsets.only(top: 30, left: 10),
+                    child: const Text(
                       "Stop Play History",
                       style: TextStyle(
                           fontSize: 17,
@@ -177,11 +172,12 @@ class _HistoryState extends State<History> {
                             val1 = onChanged;
                           });
                         },
-                        activeColor: Color.fromARGB(255, 178, 178, 178),
-                        inactiveTrackColor: Color.fromARGB(255, 0, 255, 255),
+                        activeColor: const Color.fromARGB(255, 178, 178, 178),
+                        inactiveTrackColor:
+                            const Color.fromARGB(255, 0, 255, 255),
                         thumbColor: MaterialStateProperty.all(val1
-                            ? Color.fromARGB(255, 255, 255, 255)
-                            : Color.fromARGB(255, 255, 255, 255)),
+                            ? const Color.fromARGB(255, 255, 255, 255)
+                            : const Color.fromARGB(255, 255, 255, 255)),
                       ),
                     ),
                     // customSwitch('Abcd', val2, onChangeFunction2),
@@ -192,8 +188,8 @@ class _HistoryState extends State<History> {
                 children: [
                   Container(
                     width: 250,
-                    margin: EdgeInsets.only(top: 27, left: 10),
-                    child: Text(
+                    margin: const EdgeInsets.only(top: 27, left: 10),
+                    child: const Text(
                       "Stop Search History",
                       style: TextStyle(
                           fontSize: 17,
@@ -215,11 +211,12 @@ class _HistoryState extends State<History> {
                             val1 = onChanged;
                           });
                         },
-                        activeColor: Color.fromARGB(255, 178, 178, 178),
-                        inactiveTrackColor: Color.fromARGB(255, 0, 255, 255),
+                        activeColor: const Color.fromARGB(255, 178, 178, 178),
+                        inactiveTrackColor:
+                            const Color.fromARGB(255, 0, 255, 255),
                         thumbColor: MaterialStateProperty.all(val1
-                            ? Color.fromARGB(255, 255, 255, 255)
-                            : Color.fromARGB(255, 255, 255, 255)),
+                            ? const Color.fromARGB(255, 255, 255, 255)
+                            : const Color.fromARGB(255, 255, 255, 255)),
                       ),
                     ),
                     // customSwitch('Abcd', val2, onChangeFunction2),
@@ -230,8 +227,8 @@ class _HistoryState extends State<History> {
                 children: [
                   Container(
                       width: 250,
-                      margin: EdgeInsets.only(left: 10, top: 25),
-                      child: Text(
+                      margin: const EdgeInsets.only(left: 10, top: 25),
+                      child: const Text(
                         "Manage All Activities",
                         style: TextStyle(
                           fontWeight: FontWeight.w700,
@@ -248,7 +245,7 @@ class _HistoryState extends State<History> {
                       alignment: Alignment.center,
                       child: IconButton(
                         icon: const Icon(Icons.navigate_next_rounded),
-                        color: Color.fromARGB(255, 255, 255, 255),
+                        color: const Color.fromARGB(255, 255, 255, 255),
                         iconSize: 37,
                         onPressed: () {},
                       ))
@@ -258,8 +255,8 @@ class _HistoryState extends State<History> {
                 children: [
                   Container(
                       width: 250,
-                      margin: EdgeInsets.only(left: 10, top: 10),
-                      child: Text(
+                      margin: const EdgeInsets.only(left: 10, top: 10),
+                      child: const Text(
                         "Change Password",
                         style: TextStyle(
                           fontWeight: FontWeight.w700,
@@ -276,7 +273,7 @@ class _HistoryState extends State<History> {
                       alignment: Alignment.center,
                       child: IconButton(
                         icon: const Icon(Icons.navigate_next_rounded),
-                        color: Color.fromARGB(255, 255, 255, 255),
+                        color: const Color.fromARGB(255, 255, 255, 255),
                         iconSize: 37,
                         onPressed: () {},
                       ))
@@ -286,8 +283,8 @@ class _HistoryState extends State<History> {
                 children: [
                   Container(
                       width: 250,
-                      margin: EdgeInsets.only(left: 10, top: 10),
-                      child: Text(
+                      margin: const EdgeInsets.only(left: 10, top: 10),
+                      child: const Text(
                         "Ads Settings",
                         style: TextStyle(
                           fontWeight: FontWeight.w700,
@@ -304,7 +301,7 @@ class _HistoryState extends State<History> {
                       alignment: Alignment.center,
                       child: IconButton(
                         icon: const Icon(Icons.navigate_next_rounded),
-                        color: Color.fromARGB(255, 255, 255, 255),
+                        color: const Color.fromARGB(255, 255, 255, 255),
                         iconSize: 37,
                         onPressed: () {},
                       ))
@@ -314,8 +311,8 @@ class _HistoryState extends State<History> {
                 children: [
                   Container(
                       width: 250,
-                      margin: EdgeInsets.only(left: 10, top: 10),
-                      child: Text(
+                      margin: const EdgeInsets.only(left: 10, top: 10),
+                      child: const Text(
                         "Terms & Conditions",
                         style: TextStyle(
                           fontWeight: FontWeight.w700,
@@ -332,7 +329,7 @@ class _HistoryState extends State<History> {
                       alignment: Alignment.center,
                       child: IconButton(
                         icon: const Icon(Icons.navigate_next_rounded),
-                        color: Color.fromARGB(255, 255, 255, 255),
+                        color: const Color.fromARGB(255, 255, 255, 255),
                         iconSize: 37,
                         onPressed: () {},
                       ))
@@ -342,8 +339,8 @@ class _HistoryState extends State<History> {
                 children: [
                   Container(
                       width: 250,
-                      margin: EdgeInsets.only(left: 10, top: 10),
-                      child: Text(
+                      margin: const EdgeInsets.only(left: 10, top: 10),
+                      child: const Text(
                         "About App",
                         style: TextStyle(
                           fontWeight: FontWeight.w700,
@@ -360,7 +357,7 @@ class _HistoryState extends State<History> {
                       alignment: Alignment.center,
                       child: IconButton(
                         icon: const Icon(Icons.navigate_next_rounded),
-                        color: Color.fromARGB(255, 255, 255, 255),
+                        color: const Color.fromARGB(255, 255, 255, 255),
                         iconSize: 37,
                         onPressed: () {},
                       ))

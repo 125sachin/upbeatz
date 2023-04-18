@@ -9,7 +9,6 @@ class setting extends StatefulWidget {
 }
 
 class _settingState extends State<setting> {
-  @override
   bool val1 = true;
   bool val2 = false;
   bool val3 = true;
@@ -46,6 +45,7 @@ class _settingState extends State<setting> {
     });
   }
 
+  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
@@ -54,9 +54,9 @@ class _settingState extends State<setting> {
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
-            backgroundColor: Color.fromARGB(255, 0, 0, 0),
+            backgroundColor: const Color.fromARGB(255, 0, 0, 0),
             body: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 gradient: LinearGradient(colors: [
                   Color.fromARGB(255, 0, 0, 0),
                   Color.fromARGB(255, 24, 24, 24),
@@ -68,85 +68,79 @@ class _settingState extends State<setting> {
               child: ListView(
                 scrollDirection: Axis.vertical,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Row(
                     children: [
-                      Container(
-                        child: IconButton(
-                            icon: Icon(Icons.navigate_before_rounded),
+                      IconButton(
+                          icon: const Icon(Icons.navigate_before_rounded),
+                          color: Colors.white,
+                          iconSize: 46,
+                          onPressed: () {
+                            Navigator.pop(context);
+                          }),
+                      const Text(
+                        "Account Setting",
+                        style: TextStyle(
+                            fontSize: 26,
+                            fontFamily: 'Right',
                             color: Colors.white,
-                            iconSize: 46,
-                            onPressed: () {
-                              Navigator.pop(context);
-                            }),
-                      ),
-                      Container(
-                        child: Text(
-                          "Account Setting",
-                          style: TextStyle(
-                              fontSize: 26,
-                              fontFamily: 'Right',
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 0.4),
-                        ),
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 0.4),
                       )
                     ],
                   ),
-                  Container(
-                    child: Row(
-                      children: [
-                        Container(
-                          // color: Colors.red,
-                          width: 220,
-                          margin: EdgeInsets.only(top: 30, left: 10),
-                          child: Text(
-                            "Display Language",
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontFamily: 'Poppins-Regular',
-                                color: Colors.white,
-                                fontWeight: FontWeight.w700,
-                                letterSpacing: 0.4),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(
-                            top: 30,
-                            left: size.width - 335,
-                          ),
-                          child: Text(
-                            "English",
-                            style: TextStyle(
-                                fontSize: 13,
-                                fontFamily: 'Poppins-Regular',
-                                color: Color.fromARGB(255, 150, 148, 148),
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 0.4),
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(
-                            top: 30,
-                            // left: size.width - 304,
-                          ),
-                          child: IconButton(
-                              icon: Icon(Icons.navigate_next_rounded),
+                  Row(
+                    children: [
+                      Container(
+                        // color: Colors.red,
+                        width: 220,
+                        margin: const EdgeInsets.only(top: 30, left: 10),
+                        child: const Text(
+                          "Display Language",
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontFamily: 'Poppins-Regular',
                               color: Colors.white,
-                              iconSize: 30,
-                              onPressed: () {}),
+                              fontWeight: FontWeight.w700,
+                              letterSpacing: 0.4),
                         ),
-                      ],
-                    ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(
+                          top: 30,
+                          left: size.width - 335,
+                        ),
+                        child: const Text(
+                          "English",
+                          style: TextStyle(
+                              fontSize: 13,
+                              fontFamily: 'Poppins-Regular',
+                              color: Color.fromARGB(255, 150, 148, 148),
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 0.4),
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(
+                          top: 30,
+                          // left: size.width - 304,
+                        ),
+                        child: IconButton(
+                            icon: const Icon(Icons.navigate_next_rounded),
+                            color: Colors.white,
+                            iconSize: 30,
+                            onPressed: () {}),
+                      ),
+                    ],
                   ),
                   Row(
                     children: [
                       Container(
                         width: 260,
-                        margin: EdgeInsets.only(top: 5, left: 10),
-                        child: Text(
+                        margin: const EdgeInsets.only(top: 5, left: 10),
+                        child: const Text(
                           "Equalizer",
                           style: TextStyle(
                               fontSize: 18,
@@ -161,7 +155,7 @@ class _settingState extends State<setting> {
                           top: 5,
                           left: size.width - 343,
                         ),
-                        child: Text(
+                        child: const Text(
                           "off",
                           style: TextStyle(
                               fontSize: 14,
@@ -172,9 +166,9 @@ class _settingState extends State<setting> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 5, left: 0),
+                        margin: const EdgeInsets.only(top: 5, left: 0),
                         child: IconButton(
-                            icon: Icon(Icons.navigate_next_rounded),
+                            icon: const Icon(Icons.navigate_next_rounded),
                             color: Colors.white,
                             iconSize: 30,
                             onPressed: () {}),
@@ -185,8 +179,8 @@ class _settingState extends State<setting> {
                     children: [
                       Container(
                         width: 260,
-                        margin: EdgeInsets.only(top: 5, left: 10),
-                        child: Text(
+                        margin: const EdgeInsets.only(top: 5, left: 10),
+                        child: const Text(
                           "Sleep Timer",
                           style: TextStyle(
                               fontSize: 18,
@@ -201,7 +195,7 @@ class _settingState extends State<setting> {
                           top: 5,
                           left: size.width - 343,
                         ),
-                        child: Text(
+                        child: const Text(
                           "off",
                           style: TextStyle(
                               fontSize: 14,
@@ -212,9 +206,9 @@ class _settingState extends State<setting> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 5, left: 0),
+                        margin: const EdgeInsets.only(top: 5, left: 0),
                         child: IconButton(
-                            icon: Icon(Icons.navigate_next_rounded),
+                            icon: const Icon(Icons.navigate_next_rounded),
                             color: Colors.white,
                             iconSize: 30,
                             onPressed: () {}),
@@ -225,8 +219,8 @@ class _settingState extends State<setting> {
                     children: [
                       Container(
                         width: 260,
-                        margin: EdgeInsets.only(left: 10, top: 10),
-                        child: Text(
+                        margin: const EdgeInsets.only(left: 10, top: 10),
+                        child: const Text(
                           "Lyrics",
                           style: TextStyle(
                               fontSize: 19,
@@ -251,12 +245,13 @@ class _settingState extends State<setting> {
                                 val1 = onChanged;
                               });
                             },
-                            activeColor: Color.fromARGB(255, 178, 178, 178),
+                            activeColor:
+                                const Color.fromARGB(255, 178, 178, 178),
                             inactiveTrackColor:
-                                Color.fromARGB(255, 0, 255, 255),
+                                const Color.fromARGB(255, 0, 255, 255),
                             thumbColor: MaterialStateProperty.all(val1
-                                ? Color.fromARGB(255, 255, 255, 255)
-                                : Color.fromARGB(255, 255, 255, 255)),
+                                ? const Color.fromARGB(255, 255, 255, 255)
+                                : const Color.fromARGB(255, 255, 255, 255)),
                           ),
                         ),
                         // customSwitch('Abcd', val2, onChangeFunction2),
@@ -267,8 +262,8 @@ class _settingState extends State<setting> {
                     children: [
                       Container(
                         width: 260,
-                        margin: EdgeInsets.only(top: 10, left: 10),
-                        child: Text(
+                        margin: const EdgeInsets.only(top: 10, left: 10),
+                        child: const Text(
                           "Autoplay",
                           style: TextStyle(
                               fontSize: 18,
@@ -292,12 +287,13 @@ class _settingState extends State<setting> {
                                 val2 = onChanged;
                               });
                             },
-                            activeColor: Color.fromARGB(255, 178, 178, 178),
+                            activeColor:
+                                const Color.fromARGB(255, 178, 178, 178),
                             inactiveTrackColor:
-                                Color.fromARGB(255, 0, 255, 255),
+                                const Color.fromARGB(255, 0, 255, 255),
                             thumbColor: MaterialStateProperty.all(val2
-                                ? Color.fromARGB(255, 255, 255, 255)
-                                : Color.fromARGB(255, 255, 255, 255)),
+                                ? const Color.fromARGB(255, 255, 255, 255)
+                                : const Color.fromARGB(255, 255, 255, 255)),
                           ),
                         ),
                         // customSwitch('Abcd', val2, onChangeFunction2),
@@ -308,8 +304,8 @@ class _settingState extends State<setting> {
                     children: [
                       Container(
                         width: 260,
-                        margin: EdgeInsets.only(top: 10, left: 10),
-                        child: Text(
+                        margin: const EdgeInsets.only(top: 10, left: 10),
+                        child: const Text(
                           "Dark Mode",
                           style: TextStyle(
                               fontSize: 18,
@@ -333,12 +329,13 @@ class _settingState extends State<setting> {
                                 val3 = onChanged;
                               });
                             },
-                            activeColor: Color.fromARGB(255, 178, 178, 178),
+                            activeColor:
+                                const Color.fromARGB(255, 178, 178, 178),
                             inactiveTrackColor:
-                                Color.fromARGB(255, 0, 255, 255),
+                                const Color.fromARGB(255, 0, 255, 255),
                             thumbColor: MaterialStateProperty.all(val3
-                                ? Color.fromARGB(255, 255, 255, 255)
-                                : Color.fromARGB(255, 255, 255, 255)),
+                                ? const Color.fromARGB(255, 255, 255, 255)
+                                : const Color.fromARGB(255, 255, 255, 255)),
                           ),
                         ),
                         // customSwitch('Abcd', val2, onChangeFunction2),
@@ -349,8 +346,8 @@ class _settingState extends State<setting> {
                     children: [
                       Container(
                         width: 260,
-                        margin: EdgeInsets.only(top: 10, left: 10),
-                        child: Text(
+                        margin: const EdgeInsets.only(top: 10, left: 10),
+                        child: const Text(
                           "Data Saver",
                           style: TextStyle(
                               fontSize: 18,
@@ -374,12 +371,13 @@ class _settingState extends State<setting> {
                                 val4 = onChanged;
                               });
                             },
-                            activeColor: Color.fromARGB(255, 178, 178, 178),
+                            activeColor:
+                                const Color.fromARGB(255, 178, 178, 178),
                             inactiveTrackColor:
-                                Color.fromARGB(255, 0, 255, 255),
+                                const Color.fromARGB(255, 0, 255, 255),
                             thumbColor: MaterialStateProperty.all(val4
-                                ? Color.fromARGB(255, 255, 255, 255)
-                                : Color.fromARGB(255, 255, 255, 255)),
+                                ? const Color.fromARGB(255, 255, 255, 255)
+                                : const Color.fromARGB(255, 255, 255, 255)),
                           ),
                         ),
                         // customSwitch('Abcd', val2, onChangeFunction2),
@@ -391,8 +389,8 @@ class _settingState extends State<setting> {
                       Container(
                         // color: Colors.red,
                         width: 220,
-                        margin: EdgeInsets.only(top: 10, left: 10),
-                        child: Text(
+                        margin: const EdgeInsets.only(top: 10, left: 10),
+                        child: const Text(
                           "Auto Adjust Quality",
                           style: TextStyle(
                               fontSize: 18,
@@ -416,12 +414,13 @@ class _settingState extends State<setting> {
                                 val5 = onChanged;
                               });
                             },
-                            activeColor: Color.fromARGB(255, 178, 178, 178),
+                            activeColor:
+                                const Color.fromARGB(255, 178, 178, 178),
                             inactiveTrackColor:
-                                Color.fromARGB(255, 0, 255, 255),
+                                const Color.fromARGB(255, 0, 255, 255),
                             thumbColor: MaterialStateProperty.all(val5
-                                ? Color.fromARGB(255, 255, 255, 255)
-                                : Color.fromARGB(255, 255, 255, 255)),
+                                ? const Color.fromARGB(255, 255, 255, 255)
+                                : const Color.fromARGB(255, 255, 255, 255)),
                           ),
                         ),
                         // customSwitch('Abcd', val2, onChangeFunction2),
@@ -433,8 +432,8 @@ class _settingState extends State<setting> {
                       Container(
                         // color: Colors.red,
                         width: 220,
-                        margin: EdgeInsets.only(top: 20, left: 10),
-                        child: Text(
+                        margin: const EdgeInsets.only(top: 20, left: 10),
+                        child: const Text(
                           "Downloads",
                           style: TextStyle(
                               fontSize: 18,
@@ -448,7 +447,7 @@ class _settingState extends State<setting> {
                           top: 20,
                           left: size.width - 342,
                         ),
-                        child: Text(
+                        child: const Text(
                           "215 MB",
                           style: TextStyle(
                               fontSize: 14,
@@ -458,9 +457,9 @@ class _settingState extends State<setting> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 20, left: 0),
+                        margin: const EdgeInsets.only(top: 20, left: 0),
                         child: IconButton(
-                            icon: Icon(Icons.navigate_next_rounded),
+                            icon: const Icon(Icons.navigate_next_rounded),
                             color: Colors.white,
                             iconSize: 30,
                             onPressed: () {}),
@@ -471,8 +470,8 @@ class _settingState extends State<setting> {
                     children: [
                       Container(
                         width: 260,
-                        margin: EdgeInsets.only(left: 10),
-                        child: Text(
+                        margin: const EdgeInsets.only(left: 10),
+                        child: const Text(
                           "Download Setting",
                           style: TextStyle(
                               fontSize: 18,
@@ -487,7 +486,7 @@ class _settingState extends State<setting> {
                           left: size.width - 329,
                         ),
                         child: IconButton(
-                            icon: Icon(Icons.navigate_next_rounded),
+                            icon: const Icon(Icons.navigate_next_rounded),
                             color: Colors.white,
                             iconSize: 30,
                             onPressed: () {}),
@@ -495,10 +494,17 @@ class _settingState extends State<setting> {
                     ],
                   ),
                   Container(
+                    height: 33,
+                    margin: const EdgeInsets.only(
+                        top: 12, left: 4, right: 4, bottom: 10),
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 59, 59, 59),
+                      borderRadius: BorderRadius.circular(14),
+                    ),
                     child: Row(children: [
                       Container(
-                        margin: EdgeInsets.only(left: 13),
-                        child: Text(
+                        margin: const EdgeInsets.only(left: 13),
+                        child: const Text(
                           "Notifications",
                           style: TextStyle(
                             fontSize: 19,
@@ -508,21 +514,13 @@ class _settingState extends State<setting> {
                         ),
                       )
                     ]),
-                    height: 33,
-                    margin:
-                        EdgeInsets.only(top: 12, left: 4, right: 4, bottom: 10),
-                        
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 59, 59, 59),
-                      borderRadius: BorderRadius.circular(14),
-                    ),
                   ),
                   Row(
                     children: [
                       Container(
                         width: 260,
-                        margin: EdgeInsets.only(left: 10),
-                        child: Text(
+                        margin: const EdgeInsets.only(left: 10),
+                        child: const Text(
                           "Mobile Notifications",
                           style: TextStyle(
                               fontSize: 17,
@@ -537,7 +535,7 @@ class _settingState extends State<setting> {
                           left: size.width - 329,
                         ),
                         child: IconButton(
-                            icon: Icon(Icons.navigate_next_rounded),
+                            icon: const Icon(Icons.navigate_next_rounded),
                             color: Colors.white,
                             iconSize: 30,
                             onPressed: () {}),
@@ -548,8 +546,8 @@ class _settingState extends State<setting> {
                     children: [
                       Container(
                         width: 260,
-                        margin: EdgeInsets.only(left: 10),
-                        child: Text(
+                        margin: const EdgeInsets.only(left: 10),
+                        child: const Text(
                           "Email Notifications",
                           style: TextStyle(
                               fontSize: 17,
@@ -564,7 +562,7 @@ class _settingState extends State<setting> {
                           left: size.width - 329,
                         ),
                         child: IconButton(
-                            icon: Icon(Icons.navigate_next_rounded),
+                            icon: const Icon(Icons.navigate_next_rounded),
                             color: Colors.white,
                             iconSize: 30,
                             onPressed: () {}),
@@ -575,8 +573,8 @@ class _settingState extends State<setting> {
                     children: [
                       Container(
                         width: 260,
-                        margin: EdgeInsets.only(left: 10),
-                        child: Text(
+                        margin: const EdgeInsets.only(left: 10),
+                        child: const Text(
                           "Terms & Privacy",
                           style: TextStyle(
                               fontSize: 17,
@@ -588,7 +586,7 @@ class _settingState extends State<setting> {
                       Container(
                         margin: EdgeInsets.only(top: 0, left: size.width - 329),
                         child: IconButton(
-                            icon: Icon(Icons.navigate_next_rounded),
+                            icon: const Icon(Icons.navigate_next_rounded),
                             color: Colors.white,
                             iconSize: 30,
                             onPressed: () {}),
@@ -611,7 +609,7 @@ Widget customSwitch(bool val, Function onChangeMethod) {
       children: [
         CupertinoSwitch(
           trackColor: Colors.grey,
-          activeColor: Color.fromARGB(255, 0, 146, 159),
+          activeColor: const Color.fromARGB(255, 0, 146, 159),
           value: val,
           onChanged: (newValue) {
             onChangeMethod(newValue);

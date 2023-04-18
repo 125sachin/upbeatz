@@ -1,4 +1,3 @@
-import 'package:emplayer/library/songs.dart';
 import 'package:flutter/material.dart';
 
 class Artists extends StatelessWidget {
@@ -39,7 +38,7 @@ class Artists extends StatelessWidget {
             child: Text(
               ArtistName,
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             //color: Colors.green,
           ),

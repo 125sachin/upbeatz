@@ -1,4 +1,3 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:emplayer/Models/music.dart';
 import 'package:flutter/material.dart';
 

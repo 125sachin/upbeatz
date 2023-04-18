@@ -3,19 +3,18 @@
 import 'dart:io';
 
 import 'package:emplayer/account/profile/edit_name.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../account_page.dart';
 import 'edit_age.dart';
 import 'edit_contact.dart';
 import 'edit_gender.dart';
 import 'edit_gmail.dart';
-import 'edit_name.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:image_picker/image_picker.dart';
 
 class profile_page extends StatefulWidget {
   String username;
-  profile_page({required this.username});
+  profile_page({super.key, required this.username});
 
   @override
   State<profile_page> createState() => _profile_pageState();
@@ -74,9 +73,9 @@ class _profile_pageState extends State<profile_page> {
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
-          backgroundColor: Color.fromARGB(255, 0, 0, 0),
+          backgroundColor: const Color.fromARGB(255, 0, 0, 0),
           body: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(colors: [
                 Color.fromARGB(255, 0, 0, 0),
                 Color.fromARGB(255, 24, 24, 24),
@@ -90,28 +89,24 @@ class _profile_pageState extends State<profile_page> {
               children: [
                 Row(
                   children: [
-                    Container(
-                      child: IconButton(
-                          icon: Icon(Icons.navigate_before_rounded),
+                    IconButton(
+                        icon: const Icon(Icons.navigate_before_rounded),
+                        color: Colors.white,
+                        iconSize: 46,
+                        onPressed: () {
+                          Navigator.pop(context);
+                          // Navigator.pushReplacement(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) => account()));
+                        }),
+                    const Text(
+                      "My Profile",
+                      style: TextStyle(
+                          fontSize: 29,
+                          fontFamily: "Right",
                           color: Colors.white,
-                          iconSize: 46,
-                          onPressed: () {
-                            Navigator.pop(context);
-                            // Navigator.pushReplacement(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) => account()));
-                          }),
-                    ),
-                    Container(
-                      child: Text(
-                        "My Profile",
-                        style: TextStyle(
-                            fontSize: 29,
-                            fontFamily: "Right",
-                            color: Colors.white,
-                            letterSpacing: 0.4),
-                      ),
+                          letterSpacing: 0.4),
                     )
                   ],
                 ),
@@ -130,12 +125,12 @@ class _profile_pageState extends State<profile_page> {
                           // alignment: Alignment.center,
                           width: 130,
                           height: 130,
-                          margin: EdgeInsets.only(top: 45),
+                          margin: const EdgeInsets.only(top: 45),
                           decoration: BoxDecoration(
                             image: DecorationImage(
                                 fit: BoxFit.cover,
                                 image: NetworkImage(imglink)),
-                            color: Color.fromARGB(255, 255, 255, 255),
+                            color: const Color.fromARGB(255, 255, 255, 255),
                             borderRadius: BorderRadius.circular(100),
                           ),
                         ),
@@ -143,11 +138,11 @@ class _profile_pageState extends State<profile_page> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8,
                 ),
                 Container(
-                    margin: EdgeInsets.only(bottom: 10),
+                    margin: const EdgeInsets.only(bottom: 10),
                     child: Center(
                         child: SizedBox(
                       // width: 250.0,
@@ -197,25 +192,29 @@ class _profile_pageState extends State<profile_page> {
                           ],
                           isRepeatingAnimation: true,
                           onTap: () {
-                            print("Tap Event");
+                            if (kDebugMode) {
+                              if (kDebugMode) {
+                                print("Tap Event");
+                              }
+                            }
                           },
                         ),
                       ),
                     ))),
-                SizedBox(
+                const SizedBox(
                   height: 8,
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 20),
+                  margin: const EdgeInsets.only(top: 20),
                   child: Row(
                     children: [
                       Container(
                           // color: Color.fromARGB(255, 255, 0, 0),
                           width: 220,
                           alignment: Alignment.centerLeft,
-                          margin:
-                              EdgeInsets.only(left: 10, top: 30, bottom: 20),
-                          child: Text(
+                          margin: const EdgeInsets.only(
+                              left: 10, top: 30, bottom: 20),
+                          child: const Text(
                             "Profile Photo",
                             style: TextStyle(
                               fontFamily: 'poppins-Regular',
@@ -230,7 +229,7 @@ class _profile_pageState extends State<profile_page> {
                         width: 40,
                         height: 40,
                         decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 255, 255, 255),
+                            color: const Color.fromARGB(255, 255, 255, 255),
                             borderRadius: BorderRadius.circular(12)),
                         margin: EdgeInsets.only(
                             top: 24, left: size.width - 295, bottom: 20),
@@ -240,7 +239,7 @@ class _profile_pageState extends State<profile_page> {
                           },
                           icon: Image.asset(
                             'assets/images/icons/add-photo.png',
-                            color: Color.fromARGB(255, 67, 66, 66),
+                            color: const Color.fromARGB(255, 67, 66, 66),
                             height: 30,
                             width: 30,
                           ),
@@ -251,8 +250,8 @@ class _profile_pageState extends State<profile_page> {
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.only(left: 14),
-                  child: Text(
+                  margin: const EdgeInsets.only(left: 14),
+                  child: const Text(
                     "Name",
                     style: TextStyle(
                         fontSize: 22,
@@ -263,6 +262,12 @@ class _profile_pageState extends State<profile_page> {
                   ),
                 ),
                 Container(
+                  width: 400,
+                  height: 35,
+                  margin: const EdgeInsets.only(top: 6, left: 10, right: 10),
+                  decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 49, 49, 49),
+                      borderRadius: BorderRadius.circular(16)),
                   child: Row(
                     children: [
                       Container(
@@ -270,10 +275,10 @@ class _profile_pageState extends State<profile_page> {
 
                         width: 250,
                         // color: Colors.red,
-                        margin: EdgeInsets.only(left: 7),
+                        margin: const EdgeInsets.only(left: 7),
                         child: Text(
                           widget.username,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontFamily: 'Poppins-Regular',
                               color: Color.fromARGB(255, 255, 255, 255),
                               fontSize: 16),
@@ -285,14 +290,14 @@ class _profile_pageState extends State<profile_page> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => editname()));
+                                  builder: (context) => const editname()));
                         }),
                         child: Container(
                           // width: 110,
                           // color: Colors.red,
                           // alignment: Alignment.centerRight,
                           margin: EdgeInsets.only(left: size.width - 327),
-                          child: Text(
+                          child: const Text(
                             "EDIT",
                             style: TextStyle(
                                 color: Color.fromARGB(255, 0, 255, 242),
@@ -302,17 +307,11 @@ class _profile_pageState extends State<profile_page> {
                       )
                     ],
                   ),
-                  width: 400,
-                  height: 35,
-                  margin: EdgeInsets.only(top: 6, left: 10, right: 10),
-                  decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 49, 49, 49),
-                      borderRadius: BorderRadius.circular(16)),
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.only(left: 15, top: 12),
-                  child: Text(
+                  margin: const EdgeInsets.only(left: 15, top: 12),
+                  child: const Text(
                     "Contact",
                     style: TextStyle(
                         fontSize: 21,
@@ -323,12 +322,18 @@ class _profile_pageState extends State<profile_page> {
                   ),
                 ),
                 Container(
+                  width: 400,
+                  height: 35,
+                  margin: const EdgeInsets.only(top: 6, left: 10, right: 10),
+                  decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 49, 49, 49),
+                      borderRadius: BorderRadius.circular(16)),
                   child: Row(
                     children: [
                       Container(
                         width: 250,
-                        margin: EdgeInsets.only(left: 7),
-                        child: Text(
+                        margin: const EdgeInsets.only(left: 7),
+                        child: const Text(
                           "xxxxxxx811",
                           style: TextStyle(
                               color: Color.fromARGB(255, 255, 255, 255),
@@ -340,11 +345,11 @@ class _profile_pageState extends State<profile_page> {
                       GestureDetector(
                         onTap: (() {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => editcontact()));
+                              builder: (context) => const editcontact()));
                         }),
                         child: Container(
                           margin: EdgeInsets.only(left: size.width - 327),
-                          child: Text(
+                          child: const Text(
                             "EDIT",
                             style: TextStyle(
                                 fontFamily: 'Poopins-Regular',
@@ -355,17 +360,11 @@ class _profile_pageState extends State<profile_page> {
                       )
                     ],
                   ),
-                  width: 400,
-                  height: 35,
-                  margin: EdgeInsets.only(top: 6, left: 10, right: 10),
-                  decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 49, 49, 49),
-                      borderRadius: BorderRadius.circular(16)),
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.only(left: 15, top: 12),
-                  child: Text(
+                  margin: const EdgeInsets.only(left: 15, top: 12),
+                  child: const Text(
                     "Email",
                     style: TextStyle(
                         fontSize: 21,
@@ -376,12 +375,18 @@ class _profile_pageState extends State<profile_page> {
                   ),
                 ),
                 Container(
+                  width: 400,
+                  height: 35,
+                  margin: const EdgeInsets.only(top: 6, left: 10, right: 10),
+                  decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 49, 49, 49),
+                      borderRadius: BorderRadius.circular(16)),
                   child: Row(
                     children: [
                       Container(
                         width: 250,
-                        margin: EdgeInsets.only(left: 7),
-                        child: Text(
+                        margin: const EdgeInsets.only(left: 7),
+                        child: const Text(
                           "MRANDERSON@GAMIL.COM",
                           style: TextStyle(
                               color: Color.fromARGB(255, 255, 255, 255),
@@ -392,11 +397,11 @@ class _profile_pageState extends State<profile_page> {
                       GestureDetector(
                         onTap: (() {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => editgmail()));
+                              builder: (context) => const editgmail()));
                         }),
                         child: Container(
                           margin: EdgeInsets.only(left: size.width - 327),
-                          child: Text(
+                          child: const Text(
                             "EDIT",
                             style: TextStyle(
                                 color: Color.fromARGB(255, 0, 255, 242),
@@ -407,17 +412,11 @@ class _profile_pageState extends State<profile_page> {
                       )
                     ],
                   ),
-                  width: 400,
-                  height: 35,
-                  margin: EdgeInsets.only(top: 6, left: 10, right: 10),
-                  decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 49, 49, 49),
-                      borderRadius: BorderRadius.circular(16)),
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.only(left: 15, top: 12),
-                  child: Text(
+                  margin: const EdgeInsets.only(left: 15, top: 12),
+                  child: const Text(
                     "Age",
                     style: TextStyle(
                         fontSize: 20,
@@ -428,12 +427,18 @@ class _profile_pageState extends State<profile_page> {
                   ),
                 ),
                 Container(
+                  width: 400,
+                  height: 35,
+                  margin: const EdgeInsets.only(top: 6, left: 10, right: 10),
+                  decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 49, 49, 49),
+                      borderRadius: BorderRadius.circular(16)),
                   child: Row(
                     children: [
                       Container(
                         width: 250,
-                        margin: EdgeInsets.only(left: 7),
-                        child: Text(
+                        margin: const EdgeInsets.only(left: 7),
+                        child: const Text(
                           "19",
                           style: TextStyle(
                               fontFamily: "Poppins-Regular",
@@ -444,11 +449,11 @@ class _profile_pageState extends State<profile_page> {
                       GestureDetector(
                         onTap: (() {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => editage()));
+                              builder: (context) => const editage()));
                         }),
                         child: Container(
                           margin: EdgeInsets.only(left: size.width - 327),
-                          child: Text(
+                          child: const Text(
                             "EDIT",
                             style: TextStyle(
                                 fontFamily: 'Poppins-Regular',
@@ -459,17 +464,11 @@ class _profile_pageState extends State<profile_page> {
                       )
                     ],
                   ),
-                  width: 400,
-                  height: 35,
-                  margin: EdgeInsets.only(top: 6, left: 10, right: 10),
-                  decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 49, 49, 49),
-                      borderRadius: BorderRadius.circular(16)),
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.only(left: 15, top: 12),
-                  child: Text(
+                  margin: const EdgeInsets.only(left: 15, top: 12),
+                  child: const Text(
                     "Gender",
                     style: TextStyle(
                         fontSize: 22,
@@ -480,12 +479,19 @@ class _profile_pageState extends State<profile_page> {
                   ),
                 ),
                 Container(
+                  width: 400,
+                  height: 35,
+                  margin: const EdgeInsets.only(
+                      top: 6, left: 10, right: 10, bottom: 20),
+                  decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 49, 49, 49),
+                      borderRadius: BorderRadius.circular(16)),
                   child: Row(
                     children: [
                       Container(
                         width: 250,
-                        margin: EdgeInsets.only(left: 7),
-                        child: Text(
+                        margin: const EdgeInsets.only(left: 7),
+                        child: const Text(
                           "MALE",
                           style: TextStyle(
                               fontFamily: 'Poppins-Regular',
@@ -496,11 +502,11 @@ class _profile_pageState extends State<profile_page> {
                       GestureDetector(
                         onTap: (() {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => editgender()));
+                              builder: (context) => const editgender()));
                         }),
                         child: Container(
                           margin: EdgeInsets.only(left: size.width - 327),
-                          child: Text(
+                          child: const Text(
                             "EDIT",
                             style: TextStyle(
                                 fontFamily: 'Poppins-Regular',
@@ -511,13 +517,6 @@ class _profile_pageState extends State<profile_page> {
                       )
                     ],
                   ),
-                  width: 400,
-                  height: 35,
-                  margin:
-                      EdgeInsets.only(top: 6, left: 10, right: 10, bottom: 20),
-                  decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 49, 49, 49),
-                      borderRadius: BorderRadius.circular(16)),
                 ),
               ],
             ),
@@ -538,13 +537,13 @@ class _profile_pageState extends State<profile_page> {
 class Largeimg extends StatelessWidget {
   String imglink;
 
-  Largeimg({required this.imglink});
+  Largeimg({super.key, required this.imglink});
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
     return SafeArea(
-      child: new Scaffold(
+      child: Scaffold(
           backgroundColor: Colors.black,
           body: GestureDetector(
             onTap: (() {
@@ -556,11 +555,11 @@ class Largeimg extends StatelessWidget {
                 width: size.width,
                 height: 400,
 
-                margin: EdgeInsets.only(right: 10, left: 10),
+                margin: const EdgeInsets.only(right: 10, left: 10),
                 decoration: BoxDecoration(
                   image: DecorationImage(
                       fit: BoxFit.cover, image: NetworkImage(imglink)),
-                  color: Color.fromARGB(255, 0, 0, 0),
+                  color: const Color.fromARGB(255, 0, 0, 0),
                   borderRadius: BorderRadius.circular(15),
                 ),
                 // height,
